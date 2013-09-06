@@ -1,0 +1,27 @@
+{
+    "name": "michaelesmith/throttle",
+    "version": "0.1",
+    "description": "A basic throttling implementation",
+    "keywords": ["throttle"],
+    "homepage": "https://github.com/michaelesmith/throttle",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Michael Smith",
+            "email": "sitecross@gmail.com",
+            "homepage": "http://michaelsmithonline.blogspot.com/"
+        }
+    ],
+    "support": {
+        "issues": "https://github.com/michaelesmith/throttle/issues"
+    },
+    "require": {
+        "php": ">=5.3.2",
+        "doctrine/cache": "1.0.*@dev"
+    },
+    "autoload": {
+        "psr-0": { "MS\\Throttle": "src/" }
+    },
+    "minimum-stability": "beta"
+}
