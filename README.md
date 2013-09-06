@@ -49,4 +49,4 @@ Examples
         printf('You can only make %d requests in %d seconds', $e->getInterval()->count, $e->getInterval()->seconds);
     }
 
-You can use any Doctrine\Common\Cache adapter but you need to use that is persistent across requests for most cases.
+You can use any Doctrine\Common\Cache adapter but you need to use one that is persistent across requests for most cases.
