@@ -18,6 +18,7 @@ class RateException extends \Exception {
 
     public function __construct($identifier, Interval $interval)
     {
+        $this->interval = $interval;
         parent::__construct(sprintf('Rate %d in %d seconds was exceeded by "%s"', $interval->count, $interval->seconds, $identifier));
     }
 
