@@ -50,3 +50,16 @@ Examples
     }
 
 You can use any Doctrine\Common\Cache adapter but you need to use one that is persistent across requests for most cases.
+
+###Garbage Collection
+
+By using a request persistent cache adapter you will at some point need to purge outdated entries. There are 2 strategies for this:
+
+    // garbage collect only the current key on every increment
+    $throttle->increment($key = $request->getClientIp());
+    $throttle->garbageCollect($key);
+    // this can be expensive and will not purge old entries if the key is not used
+
+    // a better way use a cli command via crontab
+    $throttle->garbageCollect();
+    // not passing a key will cause it to collect all keys
