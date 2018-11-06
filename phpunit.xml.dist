@@ -1,24 +1,30 @@
-<phpunit backupGlobals="false"
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- https://phpunit.de/manual/current/en/appendixes.configuration.html -->
+<phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="http://schema.phpunit.de/6.1/phpunit.xsd"
+         backupGlobals="false"
          colors="true"
-         bootstrap="test/bootstrap.php"
-        >
+         bootstrap="vendor/autoload.php"
+>
+    <php>
+        <ini name="error_reporting" value="-1" />
+        <env name="SHELL_VERBOSITY" value="-1" />
+        <!-- define your env variables for the test env here -->
+    </php>
+
     <testsuites>
-        <testsuite name="msDateTime Test Suite">
-            <directory>test/</directory>
+        <testsuite name="Unit Test Suite">
+            <directory>tests/unit</directory>
+        </testsuite>
+        <testsuite name="Integration Test Suite">
+            <directory>tests/integration</directory>
         </testsuite>
     </testsuites>
+
     <filter>
-        <blacklist>
-            <directory>vendor</directory>
-            <directory>docs</directory>
-        </blacklist>
+        <whitelist>
+            <directory>./src/</directory>
+        </whitelist>
     </filter>
-    <!--<logging>-->
-        <!--<log type="coverage-html" target="build/docs/coverage" charset="UTF-8" yui="true" />-->
-        <!--<log type="coverage-php" target="build/docs/coverage.serialized"/>-->
-        <!--<log type="json" target="build/docs/logfile.json"/>-->
-        <!--<log type="junit" target="build/docs/logfile.xml"/>-->
-        <!--<log type="testdox-html" target="build/docs/testdox.html"/>-->
-        <!--<log type="testdox-text" target="build/docs/testdox.txt"/>-->
-    <!--</logging>-->
 </phpunit>

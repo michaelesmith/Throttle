@@ -1,5 +1,2 @@
-build/
 vendor/
-.idea
-build
 composer.lock

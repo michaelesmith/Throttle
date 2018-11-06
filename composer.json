@@ -1,28 +1,32 @@
 {
     "name": "michaelesmith/throttle",
-    "version": "0.1",
     "description": "A basic throttling implementation",
     "keywords": ["throttle"],
-    "homepage": "https://github.com/michaelesmith/throttle",
     "type": "library",
     "license": "MIT",
     "authors": [
         {
             "name": "Michael Smith",
-            "email": "sitecross@gmail.com",
-            "homepage": "http://michaelsmithonline.blogspot.com/"
+            "email": "sitecross@gmail.com"
         }
     ],
-    "support": {
-        "issues": "https://github.com/michaelesmith/throttle/issues"
-    },
     "require": {
-        "php": ">=5.3.2",
-        "doctrine/cache": "1.*",
-        "phpunit/phpunit": "^4.0"
+        "php": "^7.1",
+        "psr/cache": "^1.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^7.4",
+        "mockery/mockery": "^1.2",
+        "php-mock/php-mock-mockery": "^1.3"
+    },
+    "suggest": {
+        "cache/cache": "Library of all the php-cache adapters",
+        "symfony/cache": "Symfony Cache component with PSR-6, PSR-16, and tags"
     },
     "autoload": {
-        "psr-0": { "MS\\Throttle": "src/" }
+        "psr-4": {"MS\\Throttle\\": "src"}
     },
-    "minimum-stability": "beta"
+    "autoload-dev": {
+        "psr-4": {"MS\\Throttle\\Tests\\Unit\\": "tests/unit", "MS\\Throttle\\Tests\\Common\\": "tests/common"}
+    }
 }
