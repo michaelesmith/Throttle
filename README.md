@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/michaelesmith/Throttle.png?branch=master)](https://travis-ci.org/michaelesmith/Throttle)
+[![Build Status](https://travis-ci.org/michaelesmith/Throttle.svg?branch=v0.1)](https://travis-ci.org/michaelesmith/Throttle)
 
 README
 ======
