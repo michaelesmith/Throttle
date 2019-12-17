@@ -237,4 +237,15 @@ class ThrottleTest extends TestCase
 
         $this->assertEquals($intervals, $sut->getIntervals(self::TEST_GET_INTERVALS_IDENTIFIER));
     }
+
+
+    public function testReset()
+    {
+        $cache = \Mockery::mock(CacheItemPoolInterface::class);
+        $cache->expects('deleteItem')->once()->andReturn(true);
+        $sut = new Throttle($cache);
+        $sut->add(new Condition(self::TEST_INCREMENT_TTL, self::TEST_INCREMENT_LIMIT));
+
+        $this->assertInstanceOf(Throttle::class, $sut->reset(self::TEST_INCREMENT_IDENTIFIER));
+    }
 }

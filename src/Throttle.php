@@ -100,6 +100,23 @@ class Throttle
     }
 
     /**
+     * Reset couter
+     *
+     * @param string $identifier
+     * @return $this
+     * @throws CacheInvalidArgumentException
+     */
+    public function reset(string $identifier): Throttle
+    {
+        foreach ($this->conditions as $condition) {
+            $key = sprintf('%s-%s', $identifier, $condition);
+            $this->cache->deleteItem($key);
+        }
+
+        return $this;
+    }
+
+    /**
      * @param string $identifier
      * @param Condition $condition
      * @return CacheItemInterface
