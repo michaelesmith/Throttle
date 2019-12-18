@@ -68,8 +68,8 @@ class Throttle
                 $interval = $item->get();
             } else {
                 $interval = new Interval($condition->getTtl());
-                $item->expiresAfter($condition->getTtl());
             }
+            $item->expiresAfter($condition->getTtl());
             $interval->count += $count;
             $item->set($interval);
             $this->cache->save($item);
